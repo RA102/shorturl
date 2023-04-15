@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Перенаправляем запросы к корню сайта на index.php
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^$ /index.html [L]
+
+# Перенаправляем все остальные запросы на stats.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /stats.php?url=$1 [L,QSA]
